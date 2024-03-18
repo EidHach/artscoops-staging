@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+$main-color: #000;
+$secondary-color: #fff;
+$gray: #808080;
+$light-gray: #d3d3d3;
+
+@mixin flex-box(
+  $flex-direction: null,
+  $justify-content: null,
+  $align-items: null
+) {
+  align-items: $align-items;
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
+
+@mixin grid-box(
+  $grid-template-columns: null,
+  $grid-template-rows: null,
+  $grid-gap: null
+) {
+  display: grid;
+  @if $grid-gap != null {
+    grid-gap: $grid-gap;
+  }
+  @if $grid-template-columns != null {
+    grid-template-columns: $grid-template-columns;
+  }
+  @if $grid-template-rows != null {
+    grid-template-rows: $grid-template-rows;
+  }
+}
+
+@mixin sm-screen {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin md-screen-portrait {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin md-screen-landscape {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin lg-screen {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin xl-screen {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
