@@ -18,7 +18,6 @@ export const useUserStore = defineStore({
       } else if (type === 'gallery') {
         const data = await UserService.getInfo(type);
         this.user = data;
-        console.log(this.user)
         return data.gallery.user;
       }
     },
